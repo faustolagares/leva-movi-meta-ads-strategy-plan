@@ -1,0 +1,2874 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estratégia de Lançamento — Leva Movi · Itaberaí</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFFF04;
+    --black: #0A0A0A;
+    --black2: #111111;
+    --black3: #1A1A1A;
+    --white: #FFFFFF;
+    --gray: #888888;
+    --gray2: #333333;
+    --orange: #FD4000;
+    --card-bg: #141414;
+    --border: rgba(255,255,04,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 2px; }
+
+  /* ── NAV ── */
+  .sidenav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 220px;
+    background: var(--black2);
+    border-right: 1px solid var(--border);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  .sidenav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidenav-logo-badge {
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding: 6px 10px;
+    border-radius: 4px;
+  }
+
+  .sidenav-city {
+    font-size: 11px;
+    color: var(--gray);
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--gray);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: var(--yellow);
+    background: rgba(255,255,4,0.06);
+    border-color: var(--border);
+  }
+
+  .nav-link.active {
+    color: var(--yellow);
+    background: rgba(255,255,4,0.08);
+  }
+
+  .nav-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    color: var(--gray2);
+    min-width: 18px;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    margin-left: 220px;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 100px 80px 80px;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .hero::before {
+    content: 'LEVA\AMOVI';
+    white-space: pre;
+    position: absolute;
+    top: -40px;
+    right: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 280px;
+    line-height: 0.85;
+    color: rgba(0,0,0,0.06);
+    pointer-events: none;
+    letter-spacing: -5px;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.5);
+    margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 9vw, 120px);
+    line-height: 0.9;
+    letter-spacing: -1px;
+    color: var(--black);
+    margin-bottom: 32px;
+    max-width: 900px;
+  }
+
+  .hero-title span {
+    display: block;
+    color: var(--black);
+    opacity: 0.35;
+    font-size: 0.55em;
+    letter-spacing: 2px;
+  }
+
+  .hero-desc {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.65);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 56px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--black);
+  }
+
+  .hero-stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.5);
+    margin-top: 4px;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 48px;
+    right: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(0,0,0,0.4);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 60px;
+    background: rgba(0,0,0,0.2);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { transform: scaleY(1); opacity: 0.4; }
+    50% { transform: scaleY(0.3); opacity: 1; }
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 100px 80px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  .section-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    line-height: 0.85;
+    color: rgba(255,255,4,0.15);
+    min-width: 80px;
+    user-select: none;
+  }
+
+  .section-title-block { flex: 1; }
+
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 0.95;
+    letter-spacing: 1px;
+    color: var(--white);
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    color: var(--gray);
+    margin-top: 16px;
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  /* ── OPPORTUNITY ── */
+  .opportunity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .opp-card {
+    background: var(--card-bg);
+    padding: 40px;
+    transition: background 0.2s;
+  }
+
+  .opp-card:hover { background: var(--black3); }
+
+  .opp-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .opp-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 12px;
+  }
+
+  .opp-text {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .opp-text strong { color: var(--white); }
+
+  /* ── PHASES ── */
+  .phases {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .phase {
+    background: var(--card-bg);
+    padding: 48px;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .phase:hover { background: var(--black3); }
+
+  .phase-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .phase-num-title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .phase-badge {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+
+  .phase-1 .phase-badge { color: var(--yellow); border-color: rgba(255,255,4,0.3); background: rgba(255,255,4,0.08); }
+  .phase-2 .phase-badge { color: #4ADE80; border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.08); }
+  .phase-3 .phase-badge { color: #60A5FA; border-color: rgba(96,165,250,0.3); background: rgba(96,165,250,0.08); }
+
+  .phase-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 1px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .phase-meta {
+    text-align: right;
+  }
+
+  .phase-budget {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--yellow);
+    line-height: 1;
+  }
+
+  .phase-duration {
+    font-size: 11px;
+    color: var(--gray);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .phase-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .phase-col-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .phase-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .phase-items li {
+    font-size: 14px;
+    color: var(--gray);
+    display: flex;
+    gap: 10px;
+    line-height: 1.5;
+  }
+
+  .phase-items li::before {
+    content: '→';
+    color: var(--yellow);
+    flex-shrink: 0;
+    font-size: 12px;
+    margin-top: 1px;
+  }
+
+  .phase-items li strong { color: var(--white); }
+
+  .phase-trigger {
+    margin-top: 32px;
+    padding: 20px 28px;
+    background: rgba(255,255,4,0.05);
+    border: 1px solid rgba(255,255,4,0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .trigger-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .trigger-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 6px;
+  }
+
+  .trigger-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  }
+
+  .trigger-text strong { color: var(--yellow); }
+
+  /* ── PERSONAS ── */
+  .personas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .persona-card {
+    background: var(--card-bg);
+    padding: 36px;
+    transition: background 0.2s;
+  }
+
+  .persona-card:hover { background: var(--black3); }
+
+  .persona-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .persona-emoji {
+    font-size: 36px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,4,0.08);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .persona-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .persona-profile {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  .persona-field {
+    margin-bottom: 16px;
+  }
+
+  .persona-field-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 6px;
+  }
+
+  .persona-field-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
+  .persona-message {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: rgba(255,255,4,0.06);
+    border-left: 3px solid var(--yellow);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: var(--white);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .persona-platform {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .platform-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: var(--black3);
+    color: var(--gray);
+    border: 1px solid var(--gray2);
+  }
+
+  /* ── COPY FRAMEWORK ── */
+  .copy-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .copy-item {
+    background: var(--card-bg);
+    overflow: hidden;
+  }
+
+  .copy-trigger {
+    width: 100%;
+    padding: 28px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--white);
+    text-align: left;
+    transition: background 0.2s;
+  }
+
+  .copy-trigger:hover { background: var(--black3); }
+
+  .copy-trigger-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .copy-persona-emoji-sm {
+    font-size: 24px;
+    width: 40px;
+    text-align: center;
+  }
+
+  .copy-trigger-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+  }
+
+  .copy-trigger-headline {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  .copy-chevron {
+    color: var(--yellow);
+    font-size: 18px;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .copy-item.open .copy-chevron {
+    transform: rotate(180deg);
+  }
+
+  .copy-content {
+    display: none;
+    padding: 0 36px 36px;
+  }
+
+  .copy-item.open .copy-content {
+    display: block;
+  }
+
+  .copy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .copy-field {
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .copy-field-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .copy-field-label.hook { color: var(--yellow); }
+  .copy-field-label.dor { color: #F87171; }
+  .copy-field-label.desejo { color: #4ADE80; }
+  .copy-field-label.objecao { color: #FB923C; }
+  .copy-field-label.quebrar { color: #60A5FA; }
+
+  .copy-field-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+  }
+
+  .copy-ads-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 16px;
+    margin-top: 8px;
+  }
+
+  .copy-ad-box {
+    background: rgba(255,255,4,0.04);
+    border: 1px solid rgba(255,255,4,0.15);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+
+  .copy-ad-headline {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .copy-ad-body {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .copy-ad-cta {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--yellow);
+    padding: 6px 14px;
+    border-radius: 4px;
+  }
+
+  /* ── CAMPAIGN STRUCTURE ── */
+  .campaigns {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .campaign-block {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .campaign-header {
+    padding: 24px 32px;
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .campaign-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: var(--white);
+  }
+
+  .campaign-budget-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    padding: 6px 16px;
+    border-radius: 6px;
+  }
+
+  .c1 .campaign-budget-tag { background: rgba(255,255,4,0.1); color: var(--yellow); border: 1px solid rgba(255,255,4,0.2); }
+  .c2 .campaign-budget-tag { background: rgba(74,222,128,0.1); color: #4ADE80; border: 1px solid rgba(74,222,128,0.2); }
+  .c3 .campaign-budget-tag { background: rgba(96,165,250,0.1); color: #60A5FA; border: 1px solid rgba(96,165,250,0.2); }
+
+  .campaign-sets {
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .ad-set {
+    padding: 20px 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .ad-set-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .ad-set-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .ad-set-field { }
+
+  .ad-set-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .ad-set-value {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ── ORGANIC ── */
+  .organic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+
+  .organic-phase {
+    background: var(--card-bg);
+    padding: 32px;
+  }
+
+  .organic-phase-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .organic-phase-sub {
+    font-size: 11px;
+    color: var(--gray);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .organic-posts {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .organic-post {
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+
+  .post-type {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 4px;
+  }
+
+  .post-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+
+  /* ── COMMUNITY ── */
+  .community-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .community-card {
+    background: var(--card-bg);
+    padding: 40px;
+  }
+
+  .community-icon {
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+
+  .community-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .community-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .community-items li {
+    font-size: 14px;
+    color: var(--gray);
+    display: flex;
+    gap: 10px;
+    line-height: 1.55;
+  }
+
+  .community-items li::before {
+    content: '—';
+    color: var(--yellow);
+    flex-shrink: 0;
+  }
+
+  .community-items li strong { color: var(--white); }
+
+  /* ── CREATIVE BRIEF ── */
+  .brief-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .brief-card {
+    padding: 36px;
+    border-radius: 12px;
+    border: 1px solid;
+  }
+
+  .brief-do {
+    background: rgba(74,222,128,0.04);
+    border-color: rgba(74,222,128,0.2);
+  }
+
+  .brief-dont {
+    background: rgba(248,113,113,0.04);
+    border-color: rgba(248,113,113,0.2);
+  }
+
+  .brief-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  .brief-do .brief-card-title { color: #4ADE80; }
+  .brief-dont .brief-card-title { color: #F87171; }
+
+  .brief-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .brief-items li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    display: flex;
+    gap: 12px;
+  }
+
+  .brief-do .brief-items li::before { content: '✓'; color: #4ADE80; font-weight: 700; flex-shrink: 0; }
+  .brief-dont .brief-items li::before { content: '✗'; color: #F87171; font-weight: 700; flex-shrink: 0; }
+
+  .brief-items li strong { color: var(--white); }
+
+  .format-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .format-card {
+    background: var(--card-bg);
+    padding: 28px 32px;
+  }
+
+  .format-rank {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    color: var(--yellow);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .format-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .format-desc {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ── CALENDAR ── */
+  .calendar {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .cal-week {
+    background: var(--card-bg);
+    padding: 32px 40px;
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+    transition: background 0.2s;
+  }
+
+  .cal-week:hover { background: var(--black3); }
+
+  .cal-week-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--yellow);
+    line-height: 1;
+  }
+
+  .cal-week-sub {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+
+  .cal-col-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cal-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .cal-items li {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.45;
+    display: flex;
+    gap: 8px;
+  }
+
+  .cal-items li::before {
+    content: '·';
+    color: var(--yellow);
+    font-size: 18px;
+    line-height: 1.1;
+    flex-shrink: 0;
+  }
+
+  .cal-items li strong { color: var(--white); }
+
+  .cal-header {
+    background: var(--black2);
+    padding: 16px 40px;
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .cal-header-cell {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  /* ── KPIS ── */
+  .kpis-phases {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .kpi-phase-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .kpi-phase-badge {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .kpi-p1 .kpi-phase-badge { background: rgba(255,255,4,0.1); color: var(--yellow); }
+  .kpi-p2 .kpi-phase-badge { background: rgba(74,222,128,0.1); color: #4ADE80; }
+  .kpi-p3 .kpi-phase-badge { background: rgba(96,165,250,0.1); color: #60A5FA; }
+
+  .kpi-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .kpi-table th {
+    background: var(--card-bg);
+    padding: 14px 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .kpi-table td {
+    padding: 16px 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.01);
+  }
+
+  .kpi-table tr:last-child td { border-bottom: none; }
+  .kpi-table tr:hover td { background: rgba(255,255,4,0.03); }
+
+  .kpi-metric { font-weight: 700; color: var(--white); }
+  .kpi-target { font-weight: 700; color: var(--yellow); font-family: 'Bebas Neue', sans-serif; font-size: 18px; }
+  .kpi-action { color: rgba(255,255,255,0.5); font-style: italic; font-size: 13px; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+  }
+
+  .footer-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 0.9;
+    letter-spacing: -1px;
+    color: var(--black);
+    margin-bottom: 16px;
+  }
+
+  .footer-sub {
+    font-size: 16px;
+    color: rgba(0,0,0,0.5);
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .footer-badge {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.4);
+    text-align: right;
+  }
+
+  .footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--black);
+    letter-spacing: 2px;
+    display: block;
+    margin-top: 8px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 40px 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .sidenav { display: none; }
+    .main { margin-left: 0; }
+    .hero, .section { padding-left: 40px; padding-right: 40px; }
+    .footer { padding: 60px 40px; }
+    .phase-body { grid-template-columns: 1fr 1fr; }
+    .cal-week { grid-template-columns: 80px 1fr 1fr; }
+    .cal-header { grid-template-columns: 80px 1fr 1fr; }
+    .cal-week .cal-col:nth-child(4),
+    .cal-week .cal-col:nth-child(5) { display: none; }
+    .cal-header .cal-header-cell:nth-child(4),
+    .cal-header .cal-header-cell:nth-child(5) { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    .hero, .section { padding: 60px 24px; }
+    .footer { padding: 60px 24px; grid-template-columns: 1fr; }
+    .phase-body { grid-template-columns: 1fr; }
+    .copy-grid { grid-template-columns: 1fr; }
+    .brief-grid { grid-template-columns: 1fr; }
+    .opportunity-grid { grid-template-columns: 1fr; }
+    .community-grid { grid-template-columns: 1fr; }
+    .organic-grid { grid-template-columns: 1fr; }
+    .format-grid { grid-template-columns: 1fr; }
+    .personas-grid { grid-template-columns: 1fr; }
+    .cal-week { grid-template-columns: 80px 1fr; }
+    .cal-header { grid-template-columns: 80px 1fr; }
+    .cal-week .cal-col:nth-child(3),
+    .cal-week .cal-col:nth-child(4),
+    .cal-week .cal-col:nth-child(5) { display: none; }
+    .cal-header .cal-header-cell:nth-child(3),
+    .cal-header .cal-header-cell:nth-child(4),
+    .cal-header .cal-header-cell:nth-child(5) { display: none; }
+    .footer-title { font-size: 48px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-title { animation: fadeUp 0.6s 0.15s ease both; }
+  .hero-desc { animation: fadeUp 0.6s 0.3s ease both; }
+  .hero-stats { animation: fadeUp 0.6s 0.45s ease both; }
+
+  /* ── HIGHLIGHT ── */
+  .highlight { color: var(--yellow); }
+
+  /* ── TABLE OF CONTENTS top bar (mobile) ── */
+  .mobile-toc {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: var(--black2);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 1100px) {
+    .mobile-toc { display: flex; }
+  }
+
+  .mobile-toc-link {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .mobile-toc-link:hover {
+    color: var(--yellow);
+    border-color: rgba(255,255,4,0.3);
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDE NAVIGATION -->
+<nav class="sidenav">
+  <div class="sidenav-logo">
+    <div class="sidenav-logo-badge">LEVA<br>MOVI</div>
+    <div>
+      <div class="sidenav-city">Estratégia</div>
+      <div style="font-size:13px;font-weight:700;color:var(--white);margin-top:2px;">Itaberaí · GO</div>
+    </div>
+  </div>
+  <a href="#oportunidade" class="nav-link"><span class="nav-num">01</span> A Oportunidade</a>
+  <a href="#fases" class="nav-link"><span class="nav-num">02</span> 3 Fases</a>
+  <a href="#personas" class="nav-link"><span class="nav-num">03</span> 7 Personas</a>
+  <a href="#copy" class="nav-link"><span class="nav-num">04</span> Framework de Copy</a>
+  <a href="#campanhas" class="nav-link"><span class="nav-num">05</span> Campanhas Meta</a>
+  <a href="#organico" class="nav-link"><span class="nav-num">06</span> Conteúdo Orgânico</a>
+  <a href="#comunidade" class="nav-link"><span class="nav-num">07</span> Comunidade Local</a>
+  <a href="#brief" class="nav-link"><span class="nav-num">08</span> Brief de Criativo</a>
+  <a href="#calendario" class="nav-link"><span class="nav-num">09</span> Calendário</a>
+  <a href="#kpis" class="nav-link"><span class="nav-num">10</span> KPIs e Gatilhos</a>
+</nav>
+
+<!-- MOBILE TOC -->
+<div class="mobile-toc">
+  <a href="#oportunidade" class="mobile-toc-link">01 Oportunidade</a>
+  <a href="#fases" class="mobile-toc-link">02 Fases</a>
+  <a href="#personas" class="mobile-toc-link">03 Personas</a>
+  <a href="#copy" class="mobile-toc-link">04 Copy</a>
+  <a href="#campanhas" class="mobile-toc-link">05 Meta Ads</a>
+  <a href="#organico" class="mobile-toc-link">06 Orgânico</a>
+  <a href="#comunidade" class="mobile-toc-link">07 Comunidade</a>
+  <a href="#brief" class="mobile-toc-link">08 Criativo</a>
+  <a href="#calendario" class="mobile-toc-link">09 Calendário</a>
+  <a href="#kpis" class="mobile-toc-link">10 KPIs</a>
+</div>
+
+<main class="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Plano Completo de Lançamento · Meta Ads · Itaberaí · 2025</p>
+    <h1 class="hero-title">
+      Dominar Itaberaí<br>
+      em 90 dias.
+      <span>Com R$300/mês e estratégia certa.</span>
+    </h1>
+    <p class="hero-desc">
+      Um plano completo de lançamento do Leva Movi em Itaberaí — segmentação de público, estratégia Meta Ads, copy por persona, calendário semana a semana e os KPIs que dizem quando escalar.
+    </p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">7</div>
+        <div class="hero-stat-label">Personas mapeadas</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Fases de lançamento</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">R$300</div>
+        <div class="hero-stat-label">Budget mensal inicial</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">8</div>
+        <div class="hero-stat-label">Semanas de calendário</div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      scroll
+    </div>
+  </section>
+
+  <!-- 01 · OPORTUNIDADE -->
+  <section class="section" id="oportunidade">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title-block">
+        <div class="section-eyebrow">Contexto de mercado</div>
+        <h2 class="section-title">A Oportunidade<br>em Itaberaí</h2>
+        <p class="section-subtitle">Por que agora, por que Itaberaí, e por que o Leva Movi tem vantagem real sobre os grandes.</p>
+      </div>
+    </div>
+
+    <div class="opportunity-grid">
+      <div class="opp-card">
+        <div class="opp-icon">🏙️</div>
+        <div class="opp-title">Mercado descoberto</div>
+        <p class="opp-text">Itaberaí não tem <strong>Uber nem 99 operando</strong>. O mototáxi é a única alternativa — e é percebido como <strong>inseguro, imprevisível e inapropriado para crianças e idosos</strong>. O Leva Movi entra no vácuo sem competição direta.</p>
+      </div>
+      <div class="opp-card">
+        <div class="opp-icon">📱</div>
+        <div class="opp-title">Demanda reprimida real</div>
+        <p class="opp-text">Mesmo sem campanha, já há corridas acontecendo — <strong>hospital, escola, trabalho, igreja</strong>. A demanda existe e está sendo mal atendida. O app não cria um hábito novo: <strong>formaliza um que já existe</strong>.</p>
+      </div>
+      <div class="opp-card">
+        <div class="opp-icon">🎯</div>
+        <div class="opp-title">Posicionamento popular</div>
+        <p class="opp-text">A cor amarela, o tom direto e o preço acessível colocam o Leva Movi <strong>no território da 99, não da Uber</strong>. Isso é um ativo enorme no interior — o povo do interior não quer executivo, quer <strong>confiável, próximo e do jeito deles</strong>.</p>
+      </div>
+      <div class="opp-card">
+        <div class="opp-icon">⚡</div>
+        <div class="opp-title">Vantagem do primeiro</div>
+        <p class="opp-text">Quem chegar primeiro <strong>define o padrão</strong> na cabeça do consumidor de Itaberaí. Em cidades pequenas, a marca que entrou primeiro é difícil de desbancar — as pessoas <strong>"chamam o Leva Movi"</strong> como se fosse o nome do serviço.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · FASES -->
+  <section class="section" id="fases">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title-block">
+        <div class="section-eyebrow">Estratégia de lançamento</div>
+        <h2 class="section-title">3 Fases,<br>3 Velocidades</h2>
+        <p class="section-subtitle">Começa na Fase 1. Cada fase tem um gatilho claro de avanço — não é feeling, é número. Quando bater, sobe de nível.</p>
+      </div>
+    </div>
+
+    <div class="phases">
+      <div class="phase phase-1">
+        <div class="phase-header">
+          <div class="phase-num-title">
+            <div class="phase-badge">FASE 1</div>
+            <div>
+              <div class="phase-name">"Chegando em Itaberaí"</div>
+              <div style="font-size:13px;color:var(--gray);margin-top:4px;">Pré-lançamento — antecipação e captação de motoristas</div>
+            </div>
+          </div>
+          <div class="phase-meta">
+            <div class="phase-budget">R$300/mês</div>
+            <div class="phase-duration">Semanas 1–2</div>
+          </div>
+        </div>
+        <div class="phase-body">
+          <div>
+            <div class="phase-col-title">Objetivo</div>
+            <ul class="phase-items">
+              <li>Criar <strong>nome na cabeça da cidade</strong> antes do app abrir</li>
+              <li>Captar <strong>mínimo 15 motoristas</strong> cadastrados</li>
+              <li>Construir <strong>lista de espera de passageiros</strong> via WhatsApp/formulário</li>
+              <li>Gerar curiosidade e FOMO: <strong>"o que é isso?"</strong></li>
+            </ul>
+          </div>
+          <div>
+            <div class="phase-col-title">Ações</div>
+            <ul class="phase-items">
+              <li><strong>Campanha motoristas:</strong> R$120 · Facebook homens 25–55</li>
+              <li><strong>Campanha passageiros:</strong> R$180 · awareness + lista de espera</li>
+              <li>Posts orgânicos de antecipação e teaser</li>
+              <li>Grupos de Facebook de Itaberaí com post de chegada</li>
+            </ul>
+          </div>
+          <div>
+            <div class="phase-col-title">CTA por audiência</div>
+            <ul class="phase-items">
+              <li><strong>Passageiro:</strong> "Avisa quando abrir" → formulário ou WhatsApp</li>
+              <li><strong>Motorista:</strong> "Quero ser parceiro" → cadastro no app</li>
+            </ul>
+          </div>
+        </div>
+        <div class="phase-trigger">
+          <div class="trigger-icon">🔓</div>
+          <div>
+            <div class="trigger-label">Gatilho para Fase 2</div>
+            <div class="trigger-text"><strong>15+ motoristas cadastrados</strong> e <strong>100+ contatos na lista de espera</strong>. Quando esses dois números baterem, o app abre e a campanha muda de antecipação para ativação.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase phase-2">
+        <div class="phase-header">
+          <div class="phase-num-title">
+            <div class="phase-badge">FASE 2</div>
+            <div>
+              <div class="phase-name">"Abriu! Primeira corrida com desconto"</div>
+              <div style="font-size:13px;color:var(--gray);margin-top:4px;">Lançamento ativo — ativação de passageiros e crescimento da frota</div>
+            </div>
+          </div>
+          <div class="phase-meta">
+            <div class="phase-budget">R$300/mês</div>
+            <div class="phase-duration">Semanas 3–6</div>
+          </div>
+        </div>
+        <div class="phase-body">
+          <div>
+            <div class="phase-col-title">Objetivo</div>
+            <ul class="phase-items">
+              <li>Converter lista de espera em <strong>downloads reais</strong></li>
+              <li>Atingir <strong>300+ downloads ativos</strong></li>
+              <li>Chegar em <strong>3+ corridas/dia consistentes</strong></li>
+              <li>Expandir frota para <strong>25–30 motoristas</strong></li>
+            </ul>
+          </div>
+          <div>
+            <div class="phase-col-title">Ações</div>
+            <ul class="phase-items">
+              <li><strong>Funil passageiros:</strong> R$200 · todo em conversão (download)</li>
+              <li><strong>Funil motoristas:</strong> R$100 · expansão de frota</li>
+              <li><strong>Remarketing</strong> na lista de espera da Fase 1</li>
+              <li>Oferta de ativação como <strong>hero do criativo</strong></li>
+              <li>Depoimentos dos primeiros passageiros como prova social</li>
+            </ul>
+          </div>
+          <div>
+            <div class="phase-col-title">Offer principal</div>
+            <ul class="phase-items">
+              <li><strong>10ª corrida grátis</strong> — destaque nos criativos</li>
+              <li>Comunicar <strong>segurança</strong> (motoristas verificados)</li>
+              <li>Mostrar <strong>facilidade</strong> (peça em poucos toques)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="phase-trigger">
+          <div class="trigger-icon">🔓</div>
+          <div>
+            <div class="trigger-label">Gatilho para Fase 3</div>
+            <div class="trigger-text"><strong>300+ downloads</strong> e <strong>5+ corridas/dia por pelo menos 5 dias seguidos</strong>. Isso prova que há demanda recorrente — hora de escalar com lookalike e expandir budget.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase phase-3">
+        <div class="phase-header">
+          <div class="phase-num-title">
+            <div class="phase-badge">FASE 3</div>
+            <div>
+              <div class="phase-name">"Itaberaí Virou"</div>
+              <div style="font-size:13px;color:var(--gray);margin-top:4px;">Escala e retenção — lookalike, influenciadores, budget expandido</div>
+            </div>
+          </div>
+          <div class="phase-meta">
+            <div class="phase-budget">R$300–800/mês</div>
+            <div class="phase-duration">Mês 2+</div>
+          </div>
+        </div>
+        <div class="phase-body">
+          <div>
+            <div class="phase-col-title">Objetivo</div>
+            <ul class="phase-items">
+              <li>Tornar o Leva Movi <strong>referência absoluta</strong> em mobilidade em Itaberaí</li>
+              <li>Adquirir <strong>novos usuários com custo decrescente</strong> via lookalike</li>
+              <li>Ativar <strong>retenção recorrente</strong> (uso semanal/diário)</li>
+            </ul>
+          </div>
+          <div>
+            <div class="phase-col-title">Ações</div>
+            <ul class="phase-items">
+              <li><strong>Lookalike audiences</strong> dos primeiros 300 usuários reais</li>
+              <li>Segmentação <strong>por persona ativa</strong> com criativo específico</li>
+              <li>Conteúdo orgânico com <strong>depoimentos e primeiras corridas</strong></li>
+              <li>Avaliação de <strong>micro-influenciador local</strong> (25–30k seguidores)</li>
+            </ul>
+          </div>
+          <div>
+            <div class="phase-col-title">Escala de budget</div>
+            <ul class="phase-items">
+              <li>R$300 → R$500 se <strong>CPA &lt; R$8</strong></li>
+              <li>R$500 → R$800 se <strong>LTV/CAC &gt; 3x</strong></li>
+              <li>Pausa em <strong>conjuntos com CPM alto</strong> e zero conversão</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · PERSONAS -->
+  <section class="section" id="personas">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title-block">
+        <div class="section-eyebrow">Segmentação de público</div>
+        <h2 class="section-title">7 Personas,<br>7 Conversas</h2>
+        <p class="section-subtitle">Anúncio que fala com todo mundo não fala com ninguém. Cada persona tem sua dor, sua mensagem, sua plataforma e seu horário ideal.</p>
+      </div>
+    </div>
+
+    <div class="personas-grid">
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-emoji">🧑‍💼</div>
+          <div>
+            <div class="persona-name">O Trabalhador Diário</div>
+            <div class="persona-profile">Homem/Mulher · 25–45 anos · vai ao trabalho todo dia</div>
+          </div>
+        </div>
+        <div class="persona-field">
+          <div class="persona-field-label">Dor</div>
+          <div class="persona-field-text">Depende de carona incerta, mototáxi irregular ou vai a pé. Chegar atrasado tem custo real — advertência, desconto no salário, mal-estar com o chefe.</div>
+        </div>
+        <div class="persona-message">"Todo dia no horário, sem depender de ninguém. Peça sua corrida pelo Leva Movi."</div>
+        <div class="persona-platform">
+          <span class="platform-tag">Facebook</span>
+          <span class="platform-tag">Instagram</span>
+          <span class="platform-tag">6h–9h · 17h–20h</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-emoji">👨‍👩‍👴</div>
+          <div>
+            <div class="persona-name">A Família do Idoso</div>
+            <div class="persona-profile">Filho/Filha adulto · 30–50 anos · pai ou mãe com restrição de mobilidade</div>
+          </div>
+        </div>
+        <div class="persona-field">
+          <div class="persona-field-label">Dor</div>
+          <div class="persona-field-text">Precisa sair do trabalho pra levar ao médico ou fica com culpa quando o idoso vai sozinho. Não confia em mototáxi desconhecido pra pessoa com dificuldade de locomoção.</div>
+        </div>
+        <div class="persona-message">"Seu pai vai ao médico. Você fica tranquilo. O Leva Movi cuida do caminho por você."</div>
+        <div class="persona-platform">
+          <span class="platform-tag">Facebook</span>
+          <span class="platform-tag">9h–12h · Dias úteis</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-emoji">👩‍👧</div>
+          <div>
+            <div class="persona-name">A Mãe da Escola</div>
+            <div class="persona-profile">Mãe/Pai · 28–42 anos · filho em idade escolar</div>
+          </div>
+        </div>
+        <div class="persona-field">
+          <div class="persona-field-label">Dor</div>
+          <div class="persona-field-text">Nem sempre tem carro disponível ou alguém de confiança para levar e buscar. Mototáxi pra criança traz ansiedade — sem capacete adequado, sem rastreamento, sem garantia.</div>
+        </div>
+        <div class="persona-message">"Seu filho chega na escola com segurança. Motoristas verificados, corrida rastreada."</div>
+        <div class="persona-platform">
+          <span class="platform-tag">Facebook</span>
+          <span class="platform-tag">Instagram</span>
+          <span class="platform-tag">7h–8h · 11h–13h</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-emoji">🚗</div>
+          <div>
+            <div class="persona-name">O Motorista Parceiro</div>
+            <div class="persona-profile">Homem · 25–55 anos · tem carro e quer renda extra</div>
+          </div>
+        </div>
+        <div class="persona-field">
+          <div class="persona-field-label">Dor</div>
+          <div class="persona-field-text">Viu Uber e 99 crescendo em cidades maiores mas Itaberaí nunca teve. Tem carro parado ou tempo ocioso sem opção de monetizar localmente.</div>
+        </div>
+        <div class="persona-message">"Itaberaí finalmente tem app de corrida. E precisa de você. Seja o primeiro."</div>
+        <div class="persona-platform">
+          <span class="platform-tag">Facebook</span>
+          <span class="platform-tag">Manhã e tarde</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-emoji">⛪</div>
+          <div>
+            <div class="persona-name">O Frequentador de Igreja</div>
+            <div class="persona-profile">Adultos e idosos · 40–70 anos · culto ou missa toda semana</div>
+          </div>
+        </div>
+        <div class="persona-field">
+          <div class="persona-field-label">Dor</div>
+          <div class="persona-field-text">Precisa de carona regular para a mesma rotina semanal. Dependência constante de vizinho ou parente gera constrangimento e limitação.</div>
+        </div>
+        <div class="persona-message">"Todo domingo, sem precisar pedir carona pra ninguém. O Leva Movi te leva e te traz."</div>
+        <div class="persona-platform">
+          <span class="platform-tag">Facebook</span>
+          <span class="platform-tag">Dom manhã · Qua noite</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-emoji">🌙</div>
+          <div>
+            <div class="persona-name">O Jovem da Noite</div>
+            <div class="persona-profile">Jovens · 18–30 anos · sai para bar/festas nos fins de semana</div>
+          </div>
+        </div>
+        <div class="persona-field">
+          <div class="persona-field-label">Dor</div>
+          <div class="persona-field-text">O dilema clássico: beber ou dirigir. Mototáxi de madrugada é arriscado. Não há alternativa segura, previsível e disponível na hora.</div>
+        </div>
+        <div class="persona-message">"Curtiu? A gente te leva de volta. Seguro, rápido, sem estresse."</div>
+        <div class="persona-platform">
+          <span class="platform-tag">Instagram</span>
+          <span class="platform-tag">Facebook</span>
+          <span class="platform-tag">Sex/Sáb 18h–23h</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-emoji">🔧</div>
+          <div>
+            <div class="persona-name">O Autônomo da Rua</div>
+            <div class="persona-profile">Vendedor/Técnico · 25–45 anos · se desloca pela cidade para trabalhar</div>
+          </div>
+        </div>
+        <div class="persona-field">
+          <div class="persona-field-label">Dor</div>
+          <div class="persona-field-text">Perde tempo e dinheiro com deslocamento entre clientes — combustível, desgaste do carro, atenção no trânsito em vez de no trabalho. Alto custo oculto que não percebe.</div>
+        </div>
+        <div class="persona-message">"De cliente em cliente sem perder tempo. Chama o Leva Movi e foca no que dá dinheiro."</div>
+        <div class="persona-platform">
+          <span class="platform-tag">Facebook</span>
+          <span class="platform-tag">Instagram</span>
+          <span class="platform-tag">7h–18h</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · COPY FRAMEWORK -->
+  <section class="section" id="copy">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title-block">
+        <div class="section-eyebrow">Psicologia de vendas</div>
+        <h2 class="section-title">Framework<br>de Copy</h2>
+        <p class="section-subtitle">Pra cada persona: o gancho que para o scroll, a dor exata, o desejo por trás dela, a objeção mais comum e como quebrá-la. Use isso pra qualquer criativo.</p>
+      </div>
+    </div>
+
+    <div class="copy-accordion">
+
+      <div class="copy-item open">
+        <button class="copy-trigger" onclick="toggleCopy(this)">
+          <div class="copy-trigger-left">
+            <div class="copy-persona-emoji-sm">🧑‍💼</div>
+            <div>
+              <div class="copy-trigger-name">Trabalhador Diário</div>
+              <div class="copy-trigger-headline">"Você já perdeu o ônibus hoje?"</div>
+            </div>
+          </div>
+          <div class="copy-chevron">▾</div>
+        </button>
+        <div class="copy-content">
+          <div class="copy-grid">
+            <div class="copy-field">
+              <div class="copy-field-label hook">🎣 Hook (para o scroll)</div>
+              <div class="copy-field-text">"Você já perdeu o ônibus hoje?" — pergunta que ativa memória emocional. Quem já viveu isso sente na hora.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label dor">💢 Dor exata</div>
+              <div class="copy-field-text">Chegar atrasado tem consequência real: advertência, desconto no salário, situação constrangedora com o chefe. A imprevisibilidade cria ansiedade todo dia.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label desejo">✨ Desejo por trás da dor</div>
+              <div class="copy-field-text">Autonomia e confiabilidade. Não depender de ninguém. Sair de casa sabendo que vai chegar na hora — sem estresse, sem favor.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label objecao">🚧 Objeção principal</div>
+              <div class="copy-field-text">"Vai ser caro demais pra usar todo dia."</div>
+            </div>
+            <div class="copy-field" style="grid-column: 1 / -1;">
+              <div class="copy-field-label quebrar">🔑 Como quebrar a objeção</div>
+              <div class="copy-field-text">Compare com o custo real de chegar atrasado: um desconto no salário já cobre semanas de corrida. Mostre o preço real de uma corrida curta — às vezes menos que um almoço. A objeção some quando a pessoa faz a conta certa.</div>
+            </div>
+          </div>
+          <div class="copy-ads-title">Anúncio pronto — Trabalhador Diário</div>
+          <div class="copy-ad-box">
+            <div class="copy-ad-headline">Todo dia no horário. Sem depender de ninguém.</div>
+            <div class="copy-ad-body">Chega de esperar carona ou ir a pé. Peça sua corrida pelo Leva Movi e chega no trabalho tranquilo — toda manhã, todo dia.</div>
+            <span class="copy-ad-cta">Baixar o app</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="copy-item">
+        <button class="copy-trigger" onclick="toggleCopy(this)">
+          <div class="copy-trigger-left">
+            <div class="copy-persona-emoji-sm">👨‍👩‍👴</div>
+            <div>
+              <div class="copy-trigger-name">Família do Idoso</div>
+              <div class="copy-trigger-headline">"Quem leva sua mãe ao médico quando você não pode?"</div>
+            </div>
+          </div>
+          <div class="copy-chevron">▾</div>
+        </button>
+        <div class="copy-content">
+          <div class="copy-grid">
+            <div class="copy-field">
+              <div class="copy-field-label hook">🎣 Hook</div>
+              <div class="copy-field-text">"Quem leva sua mãe ao médico quando você não pode?" — culpa ativa. Quem tem pai ou mãe idoso sente esse peso imediatamente.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label dor">💢 Dor exata</div>
+              <div class="copy-field-text">Culpa de não estar presente. Medo de deixar o idoso sozinho ou em transporte inseguro. Estresse de reorganizar toda a agenda para fazer uma corrida.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label desejo">✨ Desejo por trás da dor</div>
+              <div class="copy-field-text">Paz de espírito. Saber que o parente está em mãos confiáveis sem precisar estar presente. Liberdade de agenda sem culpa.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label objecao">🚧 Objeção principal</div>
+              <div class="copy-field-text">"Não vou deixar um desconhecido levar minha mãe."</div>
+            </div>
+            <div class="copy-field" style="grid-column: 1 / -1;">
+              <div class="copy-field-label quebrar">🔑 Como quebrar</div>
+              <div class="copy-field-text">Motoristas verificados + rastreamento em tempo real + você acompanha pelo app. Mostre esses três pontos explicitamente. É mais seguro que depender de "um cara que o vizinho conhece".</div>
+            </div>
+          </div>
+          <div class="copy-ads-title">Anúncio pronto — Família do Idoso</div>
+          <div class="copy-ad-box">
+            <div class="copy-ad-headline">Seu pai vai ao médico. Você fica tranquilo.</div>
+            <div class="copy-ad-body">Motoristas verificados, corrida rastreada, você acompanha pelo app. O Leva Movi cuida do caminho — você cuida do que importa.</div>
+            <span class="copy-ad-cta">Baixar o app</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="copy-item">
+        <button class="copy-trigger" onclick="toggleCopy(this)">
+          <div class="copy-trigger-left">
+            <div class="copy-persona-emoji-sm">👩‍👧</div>
+            <div>
+              <div class="copy-trigger-name">Mãe da Escola</div>
+              <div class="copy-trigger-headline">"E se você não puder buscar seu filho hoje?"</div>
+            </div>
+          </div>
+          <div class="copy-chevron">▾</div>
+        </button>
+        <div class="copy-content">
+          <div class="copy-grid">
+            <div class="copy-field">
+              <div class="copy-field-label hook">🎣 Hook</div>
+              <div class="copy-field-text">"E se você não puder buscar seu filho hoje?" — gatilho de imprevisibilidade. Nenhuma mãe quer estar nessa situação sem uma solução.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label dor">💢 Dor exata</div>
+              <div class="copy-field-text">Imprevistos acontecem. Não ter uma alternativa confiável e verificada para criança gera ansiedade constante. Mototáxi é percebido como perigoso para filhos.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label desejo">✨ Desejo por trás da dor</div>
+              <div class="copy-field-text">Controle. Uma opção que ela domina e confia — não uma solução de emergência improvisada. Saber que o filho está seguro sem precisar estar presente.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label objecao">🚧 Objeção principal</div>
+              <div class="copy-field-text">"Mototáxi já resolve e é mais barato."</div>
+            </div>
+            <div class="copy-field" style="grid-column: 1 / -1;">
+              <div class="copy-field-label quebrar">🔑 Como quebrar</div>
+              <div class="copy-field-text">Criança no banco de trás de moto não tem proteção real. Leva Movi tem: histórico do motorista, rastreamento em tempo real, responsabilidade da plataforma. É a diferença entre conveniente e seguro — e pra filho, mãe escolhe seguro.</div>
+            </div>
+          </div>
+          <div class="copy-ads-title">Anúncio pronto — Mãe da Escola</div>
+          <div class="copy-ad-box">
+            <div class="copy-ad-headline">Seu filho chega. Você respira.</div>
+            <div class="copy-ad-body">Motoristas verificados. Corrida rastreável. O transporte seguro que você precisava em Itaberaí finalmente chegou.</div>
+            <span class="copy-ad-cta">Baixar o app</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="copy-item">
+        <button class="copy-trigger" onclick="toggleCopy(this)">
+          <div class="copy-trigger-left">
+            <div class="copy-persona-emoji-sm">🚗</div>
+            <div>
+              <div class="copy-trigger-name">Motorista Parceiro</div>
+              <div class="copy-trigger-headline">"Itaberaí finalmente tem. E você está perdendo isso."</div>
+            </div>
+          </div>
+          <div class="copy-chevron">▾</div>
+        </button>
+        <div class="copy-content">
+          <div class="copy-grid">
+            <div class="copy-field">
+              <div class="copy-field-label hook">🎣 Hook</div>
+              <div class="copy-field-text">"Itaberaí finalmente tem app de corrida. E você está perdendo isso." — FOMO combinado com novidade. Quem tem carro e tempo ocioso sente urgência.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label dor">💢 Dor exata</div>
+              <div class="copy-field-text">Ver outros ganhando com Uber e 99 em cidades maiores enquanto em Itaberaí nunca houve opção. Carro parado ou tempo livre sem como monetizar localmente.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label desejo">✨ Desejo por trás da dor</div>
+              <div class="copy-field-text">Renda extra no próprio tempo, ser seu próprio chefe, aproveitar o carro e os momentos livres para gerar dinheiro sem sair da cidade.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label objecao">🚧 Objeção principal</div>
+              <div class="copy-field-text">"Vai ter corrida suficiente? A cidade é pequena."</div>
+            </div>
+            <div class="copy-field" style="grid-column: 1 / -1;">
+              <div class="copy-field-label quebrar">🔑 Como quebrar</div>
+              <div class="copy-field-text">Cidade pequena = menos competição. Quem entra primeiro estabelece clientela fiel antes que apareça qualquer concorrente. Os primeiros motoristas terão demanda represada de quem esperava por isso. Cidade fechada é vantagem, não desvantagem.</div>
+            </div>
+          </div>
+          <div class="copy-ads-title">Anúncio pronto — Motorista Parceiro</div>
+          <div class="copy-ad-box">
+            <div class="copy-ad-headline">Itaberaí finalmente tem. E precisa de você.</div>
+            <div class="copy-ad-body">Seja motorista parceiro do Leva Movi. Trabalhe no seu horário, na sua cidade, com o seu carro. Cadastro rápido, direto pelo app.</div>
+            <span class="copy-ad-cta">Quero ser motorista</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="copy-item">
+        <button class="copy-trigger" onclick="toggleCopy(this)">
+          <div class="copy-trigger-left">
+            <div class="copy-persona-emoji-sm">⛪</div>
+            <div>
+              <div class="copy-trigger-name">Frequentador de Igreja</div>
+              <div class="copy-trigger-headline">"Todo domingo, sem precisar pedir carona pra ninguém."</div>
+            </div>
+          </div>
+          <div class="copy-chevron">▾</div>
+        </button>
+        <div class="copy-content">
+          <div class="copy-grid">
+            <div class="copy-field">
+              <div class="copy-field-label hook">🎣 Hook</div>
+              <div class="copy-field-text">"Todo domingo, sem precisar pedir carona pra ninguém." — independência e dignidade. A rotina semanal repetida que gera dependência incômoda.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label dor">💢 Dor exata</div>
+              <div class="copy-field-text">Constrangimento de pedir carona toda semana para a mesma pessoa. Sensação de ser um fardo para a família. Limitação de ir somente quando alguém está disponível.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label desejo">✨ Desejo por trás da dor</div>
+              <div class="copy-field-text">Independência e dignidade. Poder ir aonde quer quando quer, sem dever favor, sem dar trabalho pra ninguém.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label objecao">🚧 Objeção principal</div>
+              <div class="copy-field-text">"Não sei mexer no aplicativo / sou velho demais pra isso."</div>
+            </div>
+            <div class="copy-field" style="grid-column: 1 / -1;">
+              <div class="copy-field-label quebrar">🔑 Como quebrar</div>
+              <div class="copy-field-text">O anúncio não é para o idoso — é para a família dele. Mensagem: "Instale pra sua mãe/avó e ela usa sozinha." O app é simples: 3 toques e o carro chegou. Mostre os passos na imagem/vídeo.</div>
+            </div>
+          </div>
+          <div class="copy-ads-title">Anúncio pronto — Frequentador de Igreja</div>
+          <div class="copy-ad-box">
+            <div class="copy-ad-headline">Todo domingo, sem precisar pedir carona pra ninguém.</div>
+            <div class="copy-ad-body">Vá pra sua igreja com conforto e de volta pra casa tranquilo. O Leva Movi chegou em Itaberaí pra isso.</div>
+            <span class="copy-ad-cta">Baixar o app</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="copy-item">
+        <button class="copy-trigger" onclick="toggleCopy(this)">
+          <div class="copy-trigger-left">
+            <div class="copy-persona-emoji-sm">🌙</div>
+            <div>
+              <div class="copy-trigger-name">Jovem da Noite</div>
+              <div class="copy-trigger-headline">"Não arrisca. Chama o Leva Movi."</div>
+            </div>
+          </div>
+          <div class="copy-chevron">▾</div>
+        </button>
+        <div class="copy-content">
+          <div class="copy-grid">
+            <div class="copy-field">
+              <div class="copy-field-label hook">🎣 Hook</div>
+              <div class="copy-field-text">"Curtiu? A gente te leva de volta." — direto, sem julgamento, com solução já na frase. Funciona especialmente bem em Stories e Reels.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label dor">💢 Dor exata</div>
+              <div class="copy-field-text">O dilema real: beber ou dirigir. Mototáxi de madrugada é perigoso. Não há alternativa verificada, disponível e acessível na hora que precisar.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label desejo">✨ Desejo por trás da dor</div>
+              <div class="copy-field-text">Curtir sem preocupação com a volta. Liberdade total para aproveitar sem ter que controlar o quanto bebe ou depender de um amigo motorista.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label objecao">🚧 Objeção principal</div>
+              <div class="copy-field-text">"Vou estar sem internet ou sem bateria quando precisar."</div>
+            </div>
+            <div class="copy-field" style="grid-column: 1 / -1;">
+              <div class="copy-field-label quebrar">🔑 Como quebrar</div>
+              <div class="copy-field-text">"Já deixa o app instalado antes de sair de casa." Instale agora — use quando precisar. A mensagem é de prevenção, não de momento. Instalar com antecedência é o comportamento que resolve a objeção.</div>
+            </div>
+          </div>
+          <div class="copy-ads-title">Anúncio pronto — Jovem da Noite</div>
+          <div class="copy-ad-box">
+            <div class="copy-ad-headline">Curtiu? A gente te leva de volta.</div>
+            <div class="copy-ad-body">Sem estresse, sem mototáxi arriscado. Já deixa o Leva Movi instalado antes de sair — e chega em casa seguro.</div>
+            <span class="copy-ad-cta">Baixar o app</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="copy-item">
+        <button class="copy-trigger" onclick="toggleCopy(this)">
+          <div class="copy-trigger-left">
+            <div class="copy-persona-emoji-sm">🔧</div>
+            <div>
+              <div class="copy-trigger-name">Autônomo da Rua</div>
+              <div class="copy-trigger-headline">"Seu tempo é dinheiro. Para de dirigir pra ganhar."</div>
+            </div>
+          </div>
+          <div class="copy-chevron">▾</div>
+        </button>
+        <div class="copy-content">
+          <div class="copy-grid">
+            <div class="copy-field">
+              <div class="copy-field-label hook">🎣 Hook</div>
+              <div class="copy-field-text">"Seu tempo é dinheiro. Para de dirigir pra ganhar." — inversão que ativa o raciocínio. Fala diretamente com quem ganha por produção.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label dor">💢 Dor exata</div>
+              <div class="copy-field-text">Custo oculto do carro: combustível + manutenção + atenção no trânsito + tempo perdido. Tudo isso somado é mais caro do que parece — e ninguém parou pra calcular.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label desejo">✨ Desejo por trás da dor</div>
+              <div class="copy-field-text">Focar no trabalho, não no deslocamento. Chegar mais disposto em cada cliente. Usar o trajeto para fazer ligações, revisar agendas ou simplesmente não se estressar no trânsito.</div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-field-label objecao">🚧 Objeção principal</div>
+              <div class="copy-field-text">"Sai mais caro usar o app do que ir de carro."</div>
+            </div>
+            <div class="copy-field" style="grid-column: 1 / -1;">
+              <div class="copy-field-label quebrar">🔑 Como quebrar</div>
+              <div class="copy-field-text">Faça a conta real: combustível + desgaste do carro + tempo de atenção no trânsito vs. uma corrida com preço fixo que cobre tudo isso. Quando a pessoa calcula direito, o app quase sempre é mais barato. E ainda sobra energia pra mais clientes no dia.</div>
+            </div>
+          </div>
+          <div class="copy-ads-title">Anúncio pronto — Autônomo</div>
+          <div class="copy-ad-box">
+            <div class="copy-ad-headline">De cliente em cliente sem perder tempo.</div>
+            <div class="copy-ad-body">Trabalha na rua? Para de depender do seu próprio carro pra cada visita. Chama o Leva Movi e foca no que dá dinheiro.</div>
+            <span class="copy-ad-cta">Baixar o app</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 05 · CAMPANHAS META ADS -->
+  <section class="section" id="campanhas">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title-block">
+        <div class="section-eyebrow">Meta Ads · Facebook e Instagram</div>
+        <h2 class="section-title">Estrutura<br>de Campanhas</h2>
+        <p class="section-subtitle">Com R$300/mês, a regra é não dispersar. Três campanhas com objetivos distintos, cada uma com seu conjunto e segmentação específica.</p>
+      </div>
+    </div>
+
+    <div class="campaigns">
+      <div class="campaign-block c1">
+        <div class="campaign-header">
+          <div>
+            <div class="campaign-title">Campanha 1 — Motoristas Parceiros</div>
+            <div style="font-size:13px;color:var(--gray);margin-top:4px;">Objetivo: Leads · Fase 1 e 2</div>
+          </div>
+          <div class="campaign-budget-tag">R$90/mês</div>
+        </div>
+        <div class="campaign-sets">
+          <div class="ad-set">
+            <div class="ad-set-name">Conjunto 1 — Recrutamento Itaberaí</div>
+            <div class="ad-set-row">
+              <div class="ad-set-field">
+                <div class="ad-set-label">Localização</div>
+                <div class="ad-set-value">Itaberaí + 10km raio</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Público</div>
+                <div class="ad-set-value">Homens 25–55 anos</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Interesses</div>
+                <div class="ad-set-value">Automóveis, renda extra, aplicativos de mobilidade, serviços autônomos</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">CTA</div>
+                <div class="ad-set-value">Enviar mensagem / Formulário de lead</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Meta CPL</div>
+                <div class="ad-set-value" style="color:var(--yellow);font-weight:700;">&lt; R$15</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="campaign-block c2">
+        <div class="campaign-header">
+          <div>
+            <div class="campaign-title">Campanha 2 — Passageiros Frequentes</div>
+            <div style="font-size:13px;color:var(--gray);margin-top:4px;">Objetivo: Conversão (download) · Fase 2</div>
+          </div>
+          <div class="campaign-budget-tag">R$120/mês</div>
+        </div>
+        <div class="campaign-sets">
+          <div class="ad-set">
+            <div class="ad-set-name">Conjunto 1 — Trabalhador + Autônomo</div>
+            <div class="ad-set-row">
+              <div class="ad-set-field">
+                <div class="ad-set-label">Horário</div>
+                <div class="ad-set-value">Seg–Sex · 6h–9h e 17h–20h</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Público</div>
+                <div class="ad-set-value">25–45 anos · Itaberaí</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Interesses</div>
+                <div class="ad-set-value">Trabalho, serviços locais, transporte</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Meta CPA</div>
+                <div class="ad-set-value" style="color:#4ADE80;font-weight:700;">&lt; R$8</div>
+              </div>
+            </div>
+          </div>
+          <div class="ad-set">
+            <div class="ad-set-name">Conjunto 2 — Família do Idoso + Escola</div>
+            <div class="ad-set-row">
+              <div class="ad-set-field">
+                <div class="ad-set-label">Horário</div>
+                <div class="ad-set-value">Seg–Sex · 9h–12h</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Público</div>
+                <div class="ad-set-value">30–50 anos · Itaberaí</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Interesses</div>
+                <div class="ad-set-value">Família, saúde, educação, cuidado com idosos</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Meta CPA</div>
+                <div class="ad-set-value" style="color:#4ADE80;font-weight:700;">&lt; R$10</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="campaign-block c3">
+        <div class="campaign-header">
+          <div>
+            <div class="campaign-title">Campanha 3 — Passageiros Ocasionais</div>
+            <div style="font-size:13px;color:var(--gray);margin-top:4px;">Objetivo: Awareness + Download · Fase 1 e 2</div>
+          </div>
+          <div class="campaign-budget-tag">R$90/mês</div>
+        </div>
+        <div class="campaign-sets">
+          <div class="ad-set">
+            <div class="ad-set-name">Conjunto 1 — Jovem da Noite</div>
+            <div class="ad-set-row">
+              <div class="ad-set-field">
+                <div class="ad-set-label">Horário</div>
+                <div class="ad-set-value">Sex e Sáb · 18h–23h</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Público</div>
+                <div class="ad-set-value">18–30 anos · Itaberaí</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Formato</div>
+                <div class="ad-set-value">Reels e Stories · vídeo 6–15s</div>
+              </div>
+            </div>
+          </div>
+          <div class="ad-set">
+            <div class="ad-set-name">Conjunto 2 — Igreja e Idosos (via família)</div>
+            <div class="ad-set-row">
+              <div class="ad-set-field">
+                <div class="ad-set-label">Horário</div>
+                <div class="ad-set-value">Dom manhã · Qua noite</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Público</div>
+                <div class="ad-set-value">40–60 anos · Facebook</div>
+              </div>
+              <div class="ad-set-field">
+                <div class="ad-set-label">Interesses</div>
+                <div class="ad-set-value">Religião, família, comunidade</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px;padding:24px 32px;background:rgba(255,255,4,0.04);border:1px solid rgba(255,255,4,0.15);border-radius:10px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--yellow);margin-bottom:10px;">💡 Dica de ouro — Audiências personalizadas</div>
+      <p style="font-size:14px;color:rgba(255,255,255,0.7);line-height:1.7;">Quando o Lucas tiver pelo menos <strong style="color:var(--white);">50–100 e-mails de clientes cadastrados de São Luís</strong>, subir essa lista no Meta como Custom Audience. O algoritmo vai encontrar pessoas em Itaberaí com comportamento idêntico — é mais eficiente que qualquer segmentação manual e pode reduzir o CPA em até 40%.</p>
+    </div>
+  </section>
+
+  <!-- 06 · CONTEÚDO ORGÂNICO -->
+  <section class="section" id="organico">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title-block">
+        <div class="section-eyebrow">Instagram e Facebook</div>
+        <h2 class="section-title">Estratégia de<br>Conteúdo Orgânico</h2>
+        <p class="section-subtitle">O orgânico barateia o paid e constrói confiança. Cada post tem um papel na jornada do passageiro e do motorista — sem publicar aleatoriamente.</p>
+      </div>
+    </div>
+
+    <div class="organic-grid">
+      <div class="organic-phase">
+        <div class="organic-phase-title">Pré-lançamento</div>
+        <div class="organic-phase-sub">Semanas 1–2 · Antecipação</div>
+        <ul class="organic-posts">
+          <li class="organic-post">
+            <div class="post-type">Teaser · Feed</div>
+            <div class="post-text">"Itaberaí, a gente vem aí 👀" — só a logo no amarelo. Sem explicação. Deixa a curiosidade trabalhar.</div>
+          </li>
+          <li class="organic-post">
+            <div class="post-type">Educacional · Reels</div>
+            <div class="post-text">"Você sabia que dá pra pedir um carro em Itaberaí pelo app?" — mostrar o fluxo de 3 toques do app real.</div>
+          </li>
+          <li class="organic-post">
+            <div class="post-type">Recrutamento · Feed</div>
+            <div class="post-text">"Quer ser o primeiro motorista de Itaberaí?" — post de captação com formulário no link da bio.</div>
+          </li>
+          <li class="organic-post">
+            <div class="post-type">Countdown · Stories</div>
+            <div class="post-text">Stories diários: "X dias para lançar." Bastidores, preparação, mapa de Itaberaí sendo marcado.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="organic-phase">
+        <div class="organic-phase-title">Semana de lançamento</div>
+        <div class="organic-phase-sub">Semana 3 · Ativação</div>
+        <ul class="organic-posts">
+          <li class="organic-post">
+            <div class="post-type">Lançamento · Feed + Stories</div>
+            <div class="post-text">"Chegamos! Baixe agora e aproveite as primeiras corridas." — post principal com toda a energia visual da marca.</div>
+          </li>
+          <li class="organic-post">
+            <div class="post-type">Humanização · Feed</div>
+            <div class="post-text">Apresentar o primeiro motorista cadastrado: nome, foto, frase. Humaniza a marca e gera confiança local.</div>
+          </li>
+          <li class="organic-post">
+            <div class="post-type">Prova real · Stories</div>
+            <div class="post-text">Screenshot da primeira corrida no app. Rota real, avaliação real. "Já rolou a primeira corrida de Itaberaí!"</div>
+          </li>
+          <li class="organic-post">
+            <div class="post-type">Reels ao vivo</div>
+            <div class="post-text">Bastidores do primeiro dia de operação. Motorista saindo pra primeira corrida, reação do passageiro.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="organic-phase">
+        <div class="organic-phase-title">Pós-lançamento</div>
+        <div class="organic-phase-sub">Semanas 4–8 · Consolidação</div>
+        <ul class="organic-posts">
+          <li class="organic-post">
+            <div class="post-type">Depoimento semanal · Feed</div>
+            <div class="post-text">Passageiro real, frase real. "Antes eu esperava 40 minutos de mototáxi. Agora chamo o Leva Movi."</div>
+          </li>
+          <li class="organic-post">
+            <div class="post-type">Educação de uso · Reels</div>
+            <div class="post-text">"Sabia que você pode usar o Leva Movi pra ir à igreja, ao mercado, ao médico?" — expande percepção de uso.</div>
+          </li>
+          <li class="organic-post">
+            <div class="post-type">Programa de fidelidade · Feed</div>
+            <div class="post-text">"10 corridas, a 11ª é sua." — explica de forma visual e simples o benefício.</div>
+          </li>
+          <li class="organic-post">
+            <div class="post-type">Motorista em destaque · Semanal</div>
+            <div class="post-text">Perfil de um motorista por semana. Cria conexão com a comunidade e ajuda na captação de novos parceiros.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;padding:24px 32px;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--yellow);margin-bottom:10px;">📐 Ritmo de publicação recomendado</div>
+      <div style="display:flex;gap:32px;flex-wrap:wrap;">
+        <div><div style="font-size:22px;font-family:'Bebas Neue',sans-serif;color:var(--white);">3–4x</div><div style="font-size:12px;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:1px;">por semana no feed</div></div>
+        <div><div style="font-size:22px;font-family:'Bebas Neue',sans-serif;color:var(--white);">1–2x</div><div style="font-size:12px;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:1px;">Reels por semana</div></div>
+        <div><div style="font-size:22px;font-family:'Bebas Neue',sans-serif;color:var(--white);">Diário</div><div style="font-size:12px;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:1px;">Stories (bastidores)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · COMUNIDADE LOCAL -->
+  <section class="section" id="comunidade">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title-block">
+        <div class="section-eyebrow">Crescimento orgânico</div>
+        <h2 class="section-title">Estratégia de<br>Comunidade Local</h2>
+        <p class="section-subtitle">Em cidades do interior, o boca a boca ainda move mais que o algoritmo. Essa estratégia ativa os canais locais que o Meta Ads não alcança — e barateia todo o paid.</p>
+      </div>
+    </div>
+
+    <div class="community-grid">
+      <div class="community-card">
+        <div class="community-icon">📘</div>
+        <div class="community-title">Grupos de Facebook de Itaberaí</div>
+        <ul class="community-items">
+          <li>Identificar os <strong>3–5 maiores grupos</strong> de compra e venda, notícias e comunidade de Itaberaí</li>
+          <li>Post de chegada: <strong>"Vocês pediram. Chegou."</strong> — não é spam, é anúncio de novidade relevante</li>
+          <li>Formato: texto direto + imagem da marca. <strong>Sem flyer cheio de informação</strong></li>
+          <li>Responder todo comentário nas primeiras 24h — o engajamento inicial faz o post viralizar organicamente</li>
+          <li>Postar também quando bater milestones: <strong>primeira corrida, 50 downloads, 100 passageiros</strong></li>
+        </ul>
+      </div>
+
+      <div class="community-card">
+        <div class="community-icon">💬</div>
+        <div class="community-title">WhatsApp — Grupos e Listas</div>
+        <ul class="community-items">
+          <li>Criar <strong>grupo "Passageiros Leva Movi Itaberaí"</strong> — comunicados, ofertas e avisos do app</li>
+          <li>Criar <strong>grupo "Motoristas Leva Movi Itaberaí"</strong> — suporte, dicas e comunidade</li>
+          <li>Capturar contatos na lista de espera da Fase 1 para o grupo de passageiros</li>
+          <li>Postar <strong>no máximo 2x/semana</strong> no grupo — comunicação de valor, não spam</li>
+          <li>Usar para <strong>remarketing informal</strong>: avisos de novidades, promoções e metas batidas</li>
+        </ul>
+      </div>
+
+      <div class="community-card">
+        <div class="community-icon">🏪</div>
+        <div class="community-title">Parcerias com Comércios Locais</div>
+        <ul class="community-items">
+          <li>Parceria com <strong>farmácias, padarias e supermercados</strong> — QR Code do app no balcão</li>
+          <li>Proposta simples: <strong>"Divulgue pra sua clientela, a gente leva ela até você"</strong></li>
+          <li>Cartão pequeno com QR Code para entregar no caixa junto com o troco</li>
+          <li>Foco em estabelecimentos frequentados por idosos e pessoas sem carro</li>
+        </ul>
+      </div>
+
+      <div class="community-card">
+        <div class="community-icon">⛪</div>
+        <div class="community-title">Igrejas e Lideranças Comunitárias</div>
+        <ul class="community-items">
+          <li>Conversar com liderança de igrejas maiores sobre o <strong>serviço para frequentadores idosos</strong></li>
+          <li>Proposta: a liderança indica o app para quem precisa de transporte regular</li>
+          <li>Oferecer <strong>desconto especial para membros</strong> indicados pela igreja (se o app permitir cupom)</li>
+          <li>Em cidades do interior, a indicação de uma liderança religiosa tem peso enorme de confiança</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · BRIEF DE CRIATIVO -->
+  <section class="section" id="brief">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title-block">
+        <div class="section-eyebrow">Direção criativa</div>
+        <h2 class="section-title">Brief de<br>Criativo</h2>
+        <p class="section-subtitle">Não é a arte — é o que a arte precisa fazer. Use isso como checklist antes de criar qualquer peça. O que entra no frame, qual emoção ativa, o que NÃO colocar.</p>
+      </div>
+    </div>
+
+    <div class="brief-grid">
+      <div class="brief-card brief-do">
+        <div class="brief-card-title">✓ O que funciona</div>
+        <ul class="brief-items">
+          <li><strong>1 coisa visual que para o scroll:</strong> a cor amarela já faz isso. Use fundo amarelo com texto preto grande e direto.</li>
+          <li><strong>Headline que fala com UMA persona:</strong> não tente falar com todo mundo numa peça só. Quem se sente chamado pelo nome presta atenção.</li>
+          <li><strong>Emoção antes de informação:</strong> mostre o rosto de alívio de quem chegou, não a lista de features do app.</li>
+          <li><strong>Vídeo curto com movimento real:</strong> carro chegando, pessoa entrando, sorriso de chegada — 6 a 15 segundos é suficiente.</li>
+          <li><strong>Pessoas reais de Itaberaí:</strong> rosto local cria conexão que foto de banco de imagens nunca vai criar.</li>
+          <li><strong>CTA único e óbvio:</strong> baixar o app, ponto. Uma ação por peça.</li>
+        </ul>
+      </div>
+
+      <div class="brief-card brief-dont">
+        <div class="brief-card-title">✗ O que não funciona</div>
+        <ul class="brief-items">
+          <li><strong>Flyer cheio de texto:</strong> se precisar ler pra entender, perdeu. O scroll já passou.</li>
+          <li><strong>Logo enorme no centro:</strong> o logo deve ser discreto — a mensagem é o produto, não a marca.</li>
+          <li><strong>Lista de features:</strong> "GPS, pagamento online, motoristas verificados" — ninguém lê. Mostre o benefício final, não a lista.</li>
+          <li><strong>Fundo com foto de mapa/cidade:</strong> ocupa espaço, não comunica nada, dificulta a leitura do texto principal.</li>
+          <li><strong>Gradientes e sombras pesadas:</strong> foge do brand book e parece amador.</li>
+          <li><strong>Texto em cima de imagem complexa:</strong> se a imagem compete com o texto, ambos perdem.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">Formatos por prioridade</div>
+      <div class="format-grid">
+        <div class="format-card">
+          <div class="format-rank">01</div>
+          <div class="format-name">Reels / Vídeo Curto</div>
+          <div class="format-desc">6–15 segundos. Movimento + emoção + CTA. Melhor custo por resultado. Ideal para jovens e trabalhadores.</div>
+        </div>
+        <div class="format-card">
+          <div class="format-rank">02</div>
+          <div class="format-name">Stories Vertical</div>
+          <div class="format-desc">Imagem estática ou vídeo curto 9:16. Alta visibilidade, baixo CPM. Ótimo para família do idoso e mãe de escola (Facebook Stories).</div>
+        </div>
+        <div class="format-card">
+          <div class="format-rank">03</div>
+          <div class="format-name">Feed Quadrado</div>
+          <div class="format-desc">Imagem 1:1, fundo amarelo, headline grande, logo pequeno. Permanece no perfil — constrói credibilidade e identidade visual ao longo do tempo.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:28px 32px;background:rgba(253,64,0,0.05);border:1px solid rgba(253,64,0,0.2);border-radius:10px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;">⚠️ Regra de ouro dos criativos</div>
+      <p style="font-size:15px;color:rgba(255,255,255,0.75);line-height:1.7;">Uma peça de anúncio tem <strong style="color:var(--white);">menos de 3 segundos</strong> para convencer alguém a parar o scroll. Se você cobrir um papel com a arte e não conseguir ler a mensagem principal com um olhar rápido — começa de novo. Simplicidade não é preguiça, é respeito pelo tempo de quem vê.</p>
+    </div>
+  </section>
+
+  <!-- 09 · CALENDÁRIO -->
+  <section class="section" id="calendario">
+    <div class="section-header">
+      <div class="section-num">09</div>
+      <div class="section-title-block">
+        <div class="section-eyebrow">Execução semana a semana</div>
+        <h2 class="section-title">Calendário de<br>Lançamento</h2>
+        <p class="section-subtitle">8 semanas, cada uma com ações específicas. O que ligar, o que publicar, o que medir e quando avançar de fase.</p>
+      </div>
+    </div>
+
+    <div class="calendar">
+      <div class="cal-header">
+        <div class="cal-header-cell">Semana</div>
+        <div class="cal-header-cell">Ads Pagos</div>
+        <div class="cal-header-cell">Conteúdo Orgânico</div>
+        <div class="cal-header-cell">Comunidade Local</div>
+        <div class="cal-header-cell">Medir / Decidir</div>
+      </div>
+
+      <div class="cal-week">
+        <div>
+          <div class="cal-week-label">Sem 1</div>
+          <div class="cal-week-sub">Pré-lançamento</div>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Ads Pagos</div>
+          <ul class="cal-items">
+            <li>Configurar <strong>Meta Ads Manager</strong> + pixel no site/app</li>
+            <li>Ligar campanha de <strong>motoristas</strong> (R$90)</li>
+            <li>Criar audiência de <strong>lista de espera</strong> passageiros</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Orgânico</div>
+          <ul class="cal-items">
+            <li>Post teaser: <strong>"Itaberaí, a gente vem aí"</strong></li>
+            <li>Stories de bastidores diários</li>
+            <li>Bio do Instagram: link para lista de espera</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Comunidade</div>
+          <ul class="cal-items">
+            <li>Entrar nos <strong>grupos de Facebook</strong> de Itaberaí</li>
+            <li>Post de chegada nos grupos</li>
+            <li>Criar grupo WhatsApp <strong>motoristas</strong></li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Medir / Decidir</div>
+          <ul class="cal-items">
+            <li>CPL motoristas: <strong>meta &lt; R$15</strong></li>
+            <li>Alcance dos posts orgânicos</li>
+            <li>Cadastros de motoristas na semana</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cal-week">
+        <div>
+          <div class="cal-week-label">Sem 2</div>
+          <div class="cal-week-sub">Pré-lançamento</div>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Ads Pagos</div>
+          <ul class="cal-items">
+            <li>Manter campanha motoristas</li>
+            <li>Ligar <strong>awareness passageiros</strong> (R$60 teste)</li>
+            <li>Testar 2 copies diferentes no mesmo ad set</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Orgânico</div>
+          <ul class="cal-items">
+            <li>Reels: como funciona o app (3 toques)</li>
+            <li>Post de recrutamento de motoristas</li>
+            <li>Countdown stories: <strong>"faltam X dias"</strong></li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Comunidade</div>
+          <ul class="cal-items">
+            <li>Visitar farmácias e padarias com <strong>QR Code</strong></li>
+            <li>Contato com lideranças de igrejas</li>
+            <li>Criar grupo WhatsApp <strong>passageiros</strong></li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Medir / Decidir</div>
+          <ul class="cal-items">
+            <li><strong>Gatilho Fase 1:</strong> 15+ motoristas + 100 lista de espera?</li>
+            <li>Se sim: preparar virada para Semana 3</li>
+            <li>Se não: dobrar budget em motoristas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cal-week">
+        <div>
+          <div class="cal-week-label">Sem 3</div>
+          <div class="cal-week-sub" style="color:#4ADE80;">LANÇAMENTO</div>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Ads Pagos</div>
+          <ul class="cal-items">
+            <li><strong>APP ABRE — virar a chave</strong></li>
+            <li>Campanha ativação passageiros: <strong>R$150</strong> concentrado</li>
+            <li>Remarketing na <strong>lista de espera</strong> da Fase 1</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Orgânico</div>
+          <ul class="cal-items">
+            <li>Post de lançamento: <strong>"Chegamos!"</strong> — máxima energia</li>
+            <li>Stories ao vivo do primeiro dia</li>
+            <li>Primeira corrida documentada</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Comunidade</div>
+          <ul class="cal-items">
+            <li>Post nos grupos Facebook: <strong>"Abriu! Primeira corrida com desconto"</strong></li>
+            <li>Mensagem no grupo WhatsApp passageiros</li>
+            <li>Ativar parcerias com comércios</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Medir / Decidir</div>
+          <ul class="cal-items">
+            <li>Downloads nas primeiras 48h</li>
+            <li>Primeiras corridas realizadas</li>
+            <li>CPA real vs. meta (&lt; R$8)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cal-week">
+        <div>
+          <div class="cal-week-label">Sem 4</div>
+          <div class="cal-week-sub">Otimização</div>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Ads Pagos</div>
+          <ul class="cal-items">
+            <li><strong>Pausar</strong> ad sets com CPM alto e zero conversão</li>
+            <li><strong>Dobrar</strong> budget no que está convertendo</li>
+            <li>Testar novo copy com depoimento real</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Orgânico</div>
+          <ul class="cal-items">
+            <li>Primeiro <strong>depoimento de passageiro</strong> real</li>
+            <li>Apresentação de motorista parceiro</li>
+            <li>Post educativo: como usar o programa de fidelidade</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Comunidade</div>
+          <ul class="cal-items">
+            <li>Celebrar <strong>50 downloads</strong> nos grupos</li>
+            <li>Pedir avaliações de 5 estrelas nas primeiras corridas</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Medir / Decidir</div>
+          <ul class="cal-items">
+            <li>Corridas/dia: <strong>meta 3+</strong></li>
+            <li>Taxa de reuso (D7): <strong>meta &gt; 40%</strong></li>
+            <li>Avaliações dos motoristas: <strong>meta 4+</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cal-week">
+        <div>
+          <div class="cal-week-label">Sem 5–6</div>
+          <div class="cal-week-sub">Consolidação</div>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Ads Pagos</div>
+          <ul class="cal-items">
+            <li>Ativar segmentações de <strong>igreja e jovem da noite</strong></li>
+            <li>Testar <strong>lookalike audience</strong> se tiver 50+ cadastros</li>
+            <li>Manter R$300 focado nos 2 melhores ad sets</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Orgânico</div>
+          <ul class="cal-items">
+            <li>2 depoimentos por semana</li>
+            <li>Reels de uso situacional: hospital, escola, noite</li>
+            <li>Motorista da semana em destaque</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Comunidade</div>
+          <ul class="cal-items">
+            <li>Expansão para mais <strong>grupos de Facebook</strong></li>
+            <li>Ativar indicações via igrejas parceiras</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Medir / Decidir</div>
+          <ul class="cal-items">
+            <li><strong>Gatilho Fase 2:</strong> 300 downloads + 5 corridas/dia por 5 dias?</li>
+            <li>Se sim: preparar expansão de budget</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cal-week">
+        <div>
+          <div class="cal-week-label">Sem 7–8</div>
+          <div class="cal-week-sub">Escala ou Ajuste</div>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Ads Pagos</div>
+          <ul class="cal-items">
+            <li><strong>Se gatilho batido:</strong> expandir para R$500–800</li>
+            <li><strong>Se não batido:</strong> A/B test de criativos, revisar copy</li>
+            <li>Avaliar inclusão de <strong>micro-influenciador local</strong></li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Orgânico</div>
+          <ul class="cal-items">
+            <li>Celebrar <strong>300 downloads</strong> publicamente</li>
+            <li>Retrospectiva: "mês 1 do Leva Movi em Itaberaí"</li>
+            <li>Teaser de novidades (entrega, outros bairros)</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Comunidade</div>
+          <ul class="cal-items">
+            <li>Evento simbólico de <strong>1 mês de Itaberaí</strong></li>
+            <li>Foto/vídeo com motoristas e primeiros clientes</li>
+          </ul>
+        </div>
+        <div class="cal-col">
+          <div class="cal-col-title">Medir / Decidir</div>
+          <ul class="cal-items">
+            <li>LTV/CAC: <strong>meta &gt; 3x</strong></li>
+            <li>NPS informal: avaliações 4–5 estrelas &gt; 80%</li>
+            <li>Decisão: manter, escalar ou pivotar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · KPIS -->
+  <section class="section" id="kpis">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <div class="section-title-block">
+        <div class="section-eyebrow">Métricas e decisões</div>
+        <h2 class="section-title">KPIs e<br>Gatilhos</h2>
+        <p class="section-subtitle">Os números que dizem se está funcionando e o que fazer quando não está. Sem esse painel, o orçamento vaza sem avisar.</p>
+      </div>
+    </div>
+
+    <div class="kpis-phases">
+      <div class="kpi-p1">
+        <div class="kpi-phase-title">
+          Fase 1 — Pré-lançamento
+          <span class="kpi-phase-badge">Semanas 1–2</span>
+        </div>
+        <table class="kpi-table">
+          <thead>
+            <tr>
+              <th>Métrica</th>
+              <th>Meta</th>
+              <th>Se não bater</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="kpi-metric">CPL Motorista</span><br><span style="font-size:12px;color:var(--gray);">Custo por lead de motorista</span></td>
+              <td><span class="kpi-target">&lt; R$15</span></td>
+              <td><span class="kpi-action">Testar novo copy. Ampliar raio geográfico para 20km.</span></td>
+            </tr>
+            <tr>
+              <td><span class="kpi-metric">CPL Passageiro (lista de espera)</span><br><span style="font-size:12px;color:var(--gray);">Custo por contato capturado</span></td>
+              <td><span class="kpi-target">&lt; R$5</span></td>
+              <td><span class="kpi-action">Simplificar formulário. Testar CTA diferente.</span></td>
+            </tr>
+            <tr>
+              <td><span class="kpi-metric">Motoristas cadastrados</span><br><span style="font-size:12px;color:var(--gray);">Total ao final de 2 semanas</span></td>
+              <td><span class="kpi-target">15+</span></td>
+              <td><span class="kpi-action">Reforçar budget em motoristas. Ativar grupos de WhatsApp e Facebook.</span></td>
+            </tr>
+            <tr>
+              <td><span class="kpi-metric">Lista de espera passageiros</span><br><span style="font-size:12px;color:var(--gray);">Contatos capturados</span></td>
+              <td><span class="kpi-target">100+</span></td>
+              <td><span class="kpi-action">Testar oferta diferente. Adicionar urgência: "vagas limitadas para lista VIP".</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kpi-p2">
+        <div class="kpi-phase-title">
+          Fase 2 — Lançamento ativo
+          <span class="kpi-phase-badge">Semanas 3–6</span>
+        </div>
+        <table class="kpi-table">
+          <thead>
+            <tr>
+              <th>Métrica</th>
+              <th>Meta</th>
+              <th>Se não bater</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="kpi-metric">CPA — Custo por Download</span><br><span style="font-size:12px;color:var(--gray);">Custo por app instalado</span></td>
+              <td><span class="kpi-target">&lt; R$8</span></td>
+              <td><span class="kpi-action">Revisar criativo. Testar formato Reels. Pausar ad sets com CPM &gt; R$40.</span></td>
+            </tr>
+            <tr>
+              <td><span class="kpi-metric">Corridas por dia</span><br><span style="font-size:12px;color:var(--gray);">Média de corridas realizadas</span></td>
+              <td><span class="kpi-target">3–5+</span></td>
+              <td><span class="kpi-action">Investigar se problema é de oferta (motoristas) ou demanda (passageiros). Focar no gargalo.</span></td>
+            </tr>
+            <tr>
+              <td><span class="kpi-metric">Downloads ativos</span><br><span style="font-size:12px;color:var(--gray);">Usuários que fizeram pelo menos 1 corrida</span></td>
+              <td><span class="kpi-target">300+</span></td>
+              <td><span class="kpi-action">Ativar remarketing na lista de espera. Aumentar orgânico com depoimentos.</span></td>
+            </tr>
+            <tr>
+              <td><span class="kpi-metric">Retenção D7</span><br><span style="font-size:12px;color:var(--gray);">% que voltou a usar em 7 dias</span></td>
+              <td><span class="kpi-target">&gt; 40%</span></td>
+              <td><span class="kpi-action">Comunicar programa de fidelidade (10ª corrida grátis). Notificação push de reativação.</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kpi-p3">
+        <div class="kpi-phase-title">
+          Fase 3 — Escala
+          <span class="kpi-phase-badge">Mês 2+</span>
+        </div>
+        <table class="kpi-table">
+          <thead>
+            <tr>
+              <th>Métrica</th>
+              <th>Meta</th>
+              <th>Se não bater</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="kpi-metric">LTV / CAC</span><br><span style="font-size:12px;color:var(--gray);">Valor do cliente vs. custo de aquisição</span></td>
+              <td><span class="kpi-target">&gt; 3x</span></td>
+              <td><span class="kpi-action">Aumentar frequência de uso (programa de fidelidade, push de reativação).</span></td>
+            </tr>
+            <tr>
+              <td><span class="kpi-metric">Avaliação média motoristas</span><br><span style="font-size:12px;color:var(--gray);">Nota média no app</span></td>
+              <td><span class="kpi-target">&gt; 4.5★</span></td>
+              <td><span class="kpi-action">Conversa direta com motoristas com nota baixa. Treinamento de atendimento.</span></td>
+            </tr>
+            <tr>
+              <td><span class="kpi-metric">NPS implícito</span><br><span style="font-size:12px;color:var(--gray);">% de avaliações 4–5 estrelas</span></td>
+              <td><span class="kpi-target">&gt; 80%</span></td>
+              <td><span class="kpi-action">Investigar fricções na experiência. Coletar feedback ativo no WhatsApp.</span></td>
+            </tr>
+            <tr>
+              <td><span class="kpi-metric">Budget expandido justificado</span><br><span style="font-size:12px;color:var(--gray);">Novo CPA com budget maior</span></td>
+              <td><span class="kpi-target">&lt; R$12</span></td>
+              <td><span class="kpi-action">Não escalar até o CPA estabilizar. Crescer budget em 20% por vez, não dobrar.</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <p class="hero-eyebrow" style="color:rgba(0,0,0,0.45);margin-bottom:16px;">Plano elaborado por Fausto Lagares · NexLink · 2025</p>
+      <div class="footer-title">Itaberaí<br>está pronta.</div>
+      <p class="footer-sub">O Leva Movi tem o produto. A estratégia está aqui. O próximo passo é ligar o primeiro anúncio e fazer a cidade saber que chegou um jeito melhor de se mover.</p>
+    </div>
+    <div class="footer-badge">
+      Estratégia de lançamento
+      <span class="footer-brand">LEVA MOVI</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  // Accordion copy
+  function toggleCopy(btn) {
+    const item = btn.closest('.copy-item');
+    item.classList.toggle('open');
+  }
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('.section, .hero');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(s => observer.observe(s));
+
+  // Animate numbers on scroll
+  const nums = document.querySelectorAll('.hero-stat-num');
+  const numObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  });
+  nums.forEach(n => {
+    n.style.opacity = '0';
+    n.style.transform = 'translateY(20px)';
+    n.style.transition = 'all 0.5s ease';
+    numObserver.observe(n);
+  });
+</script>
+</body>
+</html>

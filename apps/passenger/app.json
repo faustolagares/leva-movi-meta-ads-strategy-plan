@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Leva Movi",
+    "slug": "leva-movi-passenger",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "levamovi",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "br.com.levamovi.passenger",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Usamos sua localização para mostrar carros próximos e calcular sua corrida.",
+        "UIViewControllerBasedStatusBarAppearance": true
+      }
+    },
+    "android": {
+      "package": "br.com.levamovi.passenger"
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "ios": { "deploymentTarget": "26.0" }
+        }
+      ],
+      [
+        "react-native-maps",
+        {
+          "iosGoogleMapsApiKey": ""
+        }
+      ]
+    ]
+  }
+}

@@ -144,8 +144,27 @@ body {
   color: var(--mid);
   max-width: 480px;
   line-height: 1.8;
-  margin-bottom: 64px;
+  margin-bottom: 0;
   font-weight: 300;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.hero-media {
+  position: relative;
+}
+
+.hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
 }
 
 .hero-row {
@@ -1128,6 +1147,7 @@ body {
   .cal-row { grid-template-columns: 70px 1fr 1fr; }
   .cal-head .cal-hc:nth-child(n+4),
   .cal-row .cal-cell:nth-child(n+4) { display: none; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
   .hero-row { flex-direction: column; }
   .hero-stat { border-right: none; border-bottom: 1px solid var(--rule); }
   .footer .inner { grid-template-columns: 1fr; }
@@ -1188,9 +1208,16 @@ body {
 <!-- HERO -->
 <section class="hero">
   <div class="inner">
-    <p class="hero-eyebrow">Estratégia de lançamento — Meta Ads</p>
-    <h1 class="hero-h1">Colocar o Leva Movi<br>no mapa de Itaberaí.<br><em>Com R$300 por mês.</em></h1>
-    <p class="hero-desc">Um plano completo para lançar o app em Itaberaí — quem chamar, o que falar, quando anunciar e como saber se está funcionando. Do primeiro anúncio até a escala.</p>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Estratégia de lançamento — Meta Ads</p>
+        <h1 class="hero-h1">Colocar o Leva Movi<br>no mapa de Itaberaí.<br><em>Com R$300 por mês.</em></h1>
+        <p class="hero-desc">Um plano completo para lançar o app em Itaberaí — quem chamar, o que falar, quando anunciar e como saber se está funcionando. Do primeiro anúncio até a escala.</p>
+      </div>
+      <div class="hero-media">
+        <img class="hero-img" src="public/images/itaberai-leva-movi.webp" alt="Leva Movi em Itaberaí" loading="eager" decoding="async">
+      </div>
+    </div>
     <div class="hero-row">
       <div class="hero-stat">
         <div class="hero-stat-n">7</div>
@@ -1217,14 +1244,14 @@ body {
   <div class="inner">
     <p class="s-label">01 — Contexto de mercado</p>
     <h2 class="s-h2">Por que Itaberaí,<br><em>por que agora.</em></h2>
-    <p class="s-intro">A cidade não tem Uber nem 99. O mototáxi é a única opção — e todo mundo sabe que não é o ideal. O Leva Movi entra no lugar certo, na hora certa.</p>
+    <p class="s-intro">A cidade não tem Uber nem 99. O motótaxi é a única opção — e todo mundo sabe que não é o ideal. O Leva Movi entra no lugar certo, na hora certa.</p>
 
     <div class="opp-list">
       <div class="opp-item">
         <div class="opp-label">Mercado descoberto</div>
         <div>
           <div class="opp-title">Sem concorrente direto</div>
-          <p class="opp-body">Uber e 99 não operam em Itaberaí. O mototáxi resolve, mas é percebido como inseguro para crianças, idosos e quem não conhece o mototaxista. O Leva Movi entra no vácuo sem briga de preço.</p>
+          <p class="opp-body">Uber e 99 não operam em Itaberaí. O motótaxi resolve, mas é percebido como inseguro para crianças, idosos e quem não conhece o mototaxista. O Leva Movi entra no vácuo sem briga de preço.</p>
         </div>
       </div>
       <div class="opp-item">
@@ -1434,7 +1461,7 @@ body {
         </div>
         <div>
           <div class="p-label">O problema</div>
-          <p class="p-text">Nem sempre tem alguém disponível. Mototáxi para criança é arriscado — sem rastreamento, sem segurança, sem responsabilidade.</p>
+          <p class="p-text">Nem sempre tem alguém disponível. Motótaxi para criança é arriscado — sem rastreamento, sem segurança, sem responsabilidade.</p>
         </div>
         <div>
           <div class="p-label">A mensagem</div>
@@ -1491,7 +1518,7 @@ body {
         </div>
         <div>
           <div class="p-label">O problema</div>
-          <p class="p-text">O dilema de sempre: beber ou dirigir. Mototáxi de madrugada é arriscado. Não há alternativa segura e disponível na hora.</p>
+          <p class="p-text">O dilema de sempre: beber ou dirigir. Motótaxi de madrugada é arriscado. Não há alternativa segura e disponível na hora.</p>
         </div>
         <div>
           <div class="p-label">A mensagem</div>
@@ -1631,7 +1658,7 @@ body {
             </div>
             <div class="copy-field">
               <div class="cf-label">Dor real</div>
-              <p class="cf-text">Imprevistos acontecem. Não ter uma alternativa verificada para criança gera ansiedade. Mototáxi é percebido como perigoso para filho pequeno.</p>
+              <p class="cf-text">Imprevistos acontecem. Não ter uma alternativa verificada para criança gera ansiedade. Motótaxi é percebido como perigoso para filho pequeno.</p>
             </div>
             <div class="copy-field">
               <div class="cf-label">O que ela quer de verdade</div>
@@ -1639,7 +1666,7 @@ body {
             </div>
             <div class="copy-field">
               <div class="cf-label">Dúvida mais comum</div>
-              <p class="cf-text">"Mototáxi já resolve e é mais barato."</p>
+              <p class="cf-text">"Motótaxi já resolve e é mais barato."</p>
             </div>
             <div class="copy-field" style="grid-column: 1 / -1;">
               <div class="cf-label">Como responder essa dúvida</div>
@@ -1757,7 +1784,7 @@ body {
             </div>
             <div class="copy-field">
               <div class="cf-label">Dor real</div>
-              <p class="cf-text">O dilema clássico: beber ou dirigir. Mototáxi de madrugada é perigoso. Não há alternativa verificada e disponível na hora.</p>
+              <p class="cf-text">O dilema clássico: beber ou dirigir. Motótaxi de madrugada é perigoso. Não há alternativa verificada e disponível na hora.</p>
             </div>
             <div class="copy-field">
               <div class="cf-label">O que ele quer de verdade</div>
@@ -1776,7 +1803,7 @@ body {
           <div class="copy-ad">
             <div class="copy-ad-body">
               <div class="copy-ad-h">Curtiu? A gente te leva de volta.</div>
-              <p class="copy-ad-p">Sem estresse, sem mototáxi arriscado. Já deixa o Leva Movi instalado antes de sair — e chega em casa seguro.</p>
+              <p class="copy-ad-p">Sem estresse, sem motótaxi arriscado. Já deixa o Leva Movi instalado antes de sair — e chega em casa seguro.</p>
             </div>
             <div class="copy-ad-cta">Baixar o app</div>
           </div>
@@ -1976,7 +2003,7 @@ body {
         <ul class="oc-posts">
           <li>
             <div class="oc-post-type">Depoimento · Semanal</div>
-            <p class="oc-post-text">Passageiro real, frase real. "Antes esperava 40 minutos de mototáxi. Agora chamo o Leva Movi."</p>
+            <p class="oc-post-text">Passageiro real, frase real. "Antes esperava 40 minutos de motótaxi. Agora chamo o Leva Movi."</p>
           </li>
           <li>
             <div class="oc-post-type">Educação · Reels</div>
